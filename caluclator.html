@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALUCLATOR</title>
+    <style>
+        #screen
+        {
+            height:40px;
+            width:410px;
+            background-color:rgba(128, 128, 128,0.9);
+            font-size: 50px;
+            font-weight: bolder;
+            padding:5px;
+            color:white;
+            font-size:larger;
+            font-weight:bold;
+            display:none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        table
+        {
+            position:absolute;
+            left:35%;
+            top:20%;
+            height:460px;
+            width:445px;
+            background-color:whitesmoke;
+            border-style:groove;
+            border-color:antiquewhite;
+            border-width:8px;
+        }
+       td
+       {
+        height:40px;
+        width:70px;
+        border-style:none;
+       }
+       
+       button
+       {
+        height:55px;
+        width:94px;
+        font-size:larger;
+        background-color:rgba(0, 0, 0,0.8);
+        color:white;
+        border-style:none;
+        border-radius:14px;
+        box-shadow:2px 3px 1px 1px  grey;
+        z-index:2;
+       }
+    </style>
+</head>
+<body>
+    <table  cellspacing="1" border="2px">
+        <tr>
+            <td colspan="4" align="center" style="background-color: gray;height:45px"><input type="text" id="screen"></td>
+        </tr>
+        <tr>
+            <td align="center" ><button onclick="clearScreen()">CLEAR</button></td>
+            <td align="center"><button onclick="onOff()">ON/OFF</button></td>
+            <td align="center"><button onclick="show('%')">%</button></td>
+            <td align="center"><button onclick="show('/')">/</button></td>
+
+        </tr>
+        <tr>
+            <td align="center"><button onclick="show('7')">7</button></td>
+            <td align="center"><button onclick="show('8')">8</button></td>
+            <td align="center"><button onclick="show('9')">9</button></td>
+            <td align="center"><button onclick="show('+')">+</button></td>
+
+        </tr>
+        <tr>
+            <td align="center"><button onclick="show('4')">4</button></td>
+            <td align="center"><button onclick="show('5')">5</button></td>
+            <td align="center"><button onclick="show('6')">6</button></td>
+            <td align="center"><button onclick="show('-')">-</button></td>
+
+        </tr>
+        <tr>
+            <td align="center"><button onclick="show('1')">1</button></td>
+            <td align="center"><button onclick="show('2')">2</button></td>
+            <td align="center"><button onclick="show('3')">3</button></td>
+            <td align="center"><button onclick="show('*')">x</button></td>
+
+        </tr>
+        <tr>
+            <td align="center"><button onclick="show('0')">0</button></td>
+            <td align="center"><button onclick="show('.')" id="sshow">.</button></td>
+            <td align="center" colspan="2"><button style="width:202px;" onclick="caluclate()">=</button></td>
+
+        </tr>
+       
+    </table>
+    <script>
+        function clearScreen()
+        {
+            document.getElementById("screen").value="";
+        }
+
+        function show(inputs)
+        {
+            document.getElementById("screen").value+=inputs;
+
+        }
+
+        function caluclate()
+        {
+          var output=  eval( document.getElementById("screen").value);
+
+          document.getElementById("screen").value=output;
+        }
+
+       function onOff()
+       {
+       if( document.getElementById("screen").style.display=='block')
+       {
+        document.getElementById("screen").style.display='none';
+
+        document.getElementById("screen").value="";
+       }
+       else{
+        document.getElementById("screen").value="";
+
+        document.getElementById("screen").style.display='block';
+       }
+       }
+    
+
+
+</script>
+
+            
+        
+</body>
+</html>
